@@ -1,4 +1,6 @@
 import React from 'react';
+import amenitiesData from './data/amenities.json';
+import servicesData from './data/services.json';
 
 const HotelInfo = () => {
   return (
@@ -22,6 +24,14 @@ const HotelInfo = () => {
           <h2>Services and Amenities</h2>
           <p>Our services and amenities are designed to make your travel easy, your stay comfortable, and your experience one-of-a-kind.</p>
           <ul>
+          {
+
+            servicesData.map((service, i)=>
+              <li key={i}>{service.name}</li>
+            )
+
+          }
+          {/* 
             <li>Indoor pool</li>
             <li>24-hour fitness center</li>
             <li>Massage therapy</li>
@@ -37,12 +47,21 @@ const HotelInfo = () => {
             <li>Daily paper</li>
             <li>Certified "green" hotel</li>
             <li>Pet-friendly rooms  &amp; common areas</li>
+          */}
           </ul>
         </section>
         <section className="checklist" id="accessibility">
           <h2>Accessibility</h2>
           <p>We're committed to maintaining the same quality of service for every individual. We offer the following facilities for those with special needs:</p>
           <ul>
+
+          {
+            amenitiesData.map((amenity, i)=>
+              <li key={i}>{amenity.name}</li>
+            )
+          }
+
+          {/* 
             <li>Grab bars on tub walls</li>
             <li>Shower chairs</li>
             <li>Hand held shower sprayers</li>
@@ -56,6 +75,7 @@ const HotelInfo = () => {
             <li>Closed captioned television converters</li>
             <li>Vibrating alarm clocks</li>
             <li>Telephones with volume control</li>
+          */}
           </ul>
         </section>
       </article>
