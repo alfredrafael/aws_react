@@ -7,30 +7,43 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-  TableName: "MenuLinks",
+
+  TableName: "GalleryImages",
+
+  ////////////////////////////////////////////////
+
   KeySchema: [
     // Partition Key
-    { AttributeName: "href", KeyType: "HASH" },
+    { AttributeName: "src", KeyType: "HASH" },
     // Sort Keys
-    { AttributeName: "text", KeyType: "RANGE"}  
+    { AttributeName: "className", KeyType: "RANGE"}  
   ],
+
+  ////////////////////////////////////////////////
+
   AttributeDefinitions: [
-    { AttributeName: "class", AttributeType: "S" },
-    { AttributeName: "href", AttributeType: "S" },
-    { AttributeName: "text", AttributeType: "S" }
+    { AttributeName: "src", AttributeType: "S" },
+    { AttributeName: "alt", AttributeType: "S" },
+    { AttributeName: "className", AttributeType: "S" }
   ],
+
+  ////////////////////////////////////////////////
+
   LocalSecondaryIndexes: [
     {
-      IndexName: "ClassIndex",
+      IndexName: "AltIndex",
       KeySchema: [
-        { AttributeName: "href", KeyType: "HASH" },
-        { AttributeName: "class", KeyType: "RANGE" }
+        { AttributeName: "src", KeyType: "HASH" },
+        { AttributeName: "alt", KeyType: "RANGE" }
       ],
       Projection: {
         ProjectionType: "KEYS_ONLY"
       }
     }
   ], 
+
+ ////////////////////////////////////////////////
+
   ProvisionedThroughput: {
     ReadCapacityUnits: 10,
     WriteCapacityUnits: 10
