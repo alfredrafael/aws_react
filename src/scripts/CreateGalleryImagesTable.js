@@ -10,7 +10,7 @@ var params = {
 
   TableName: "GalleryImages",
 
-  ////////////////////////////////////////////////
+  ///////////////////////////////////////////////
 
   KeySchema: [
     // Partition Key
@@ -19,7 +19,7 @@ var params = {
     { AttributeName: "className", KeyType: "RANGE"}  
   ],
 
-  ////////////////////////////////////////////////
+  ///////////////////////////////////////////////
 
   AttributeDefinitions: [
     { AttributeName: "src", AttributeType: "S" },
@@ -27,7 +27,7 @@ var params = {
     { AttributeName: "className", AttributeType: "S" }
   ],
 
-  ////////////////////////////////////////////////
+  ///////////////////////////////////////////////
 
   LocalSecondaryIndexes: [
     {
