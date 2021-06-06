@@ -2,7 +2,7 @@ var AWS = require("aws-sdk");
 var fs = require('fs');
 
 AWS.config.update({
-  region: "us-east-1"
+  region: "us-east-2"
 });
 
 console.log("Writing entries to MenuLinks table.");
@@ -26,6 +26,6 @@ var menuLinksData =
       console.error("Unable to load data into table for menu links",
       menuLink.text, ". Error: ", JSON.stringify(err, null, 2))
     else
-      console.log("Added", menuLink.text, "to table.")
+      console.log("Added '", menuLink.text, "' to table.")
   });
 });

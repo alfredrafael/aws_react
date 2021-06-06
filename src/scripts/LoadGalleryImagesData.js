@@ -2,7 +2,7 @@ var AWS = require("aws-sdk");
 var fs = require('fs');
 
 AWS.config.update({
-  region: "us-east-1"
+  region: "us-east-2"
 });
 
 console.log("Writing entries to GalleryImages table.");
@@ -13,8 +13,8 @@ var galleryImagesData =
 
 galleryImagesData.forEach(function(galleryImage) {
   var className = galleryImage.className;
-  if (className.trim() == "")
-    className = "no_class";
+  if (className.trim() == "") // if className is empty...
+    className = "no_class"; // this is the className
 
   var params = {
     TableName: "GalleryImages",
